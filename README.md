@@ -34,3 +34,56 @@ Refer to [Quaternion Kinematics](https://www.iri.upc.edu/people/jsola/JoanSola/o
 | Gravity Vector | $g_{t}$ | $g$ | $\delta g$ | $g_{t}=g + \delta g$ | | |
 | Acceleration   | $a_t$ | | |  | $a_m$| $a_n$ |
 | Angular Rate   | $\omega_t$ | | |  | $\omega_m$| $\omega_n$ |
+
+# Kinematic Equations
+$$\dot{p}_t = v_t$$
+$$\dot{v}_t = a_t$$
+$$\dot{q}_t = \frac{1}{2} q_t \bigotimes \omega_t$$
+$$\dot{a}_{bt} = a_w$$
+$$\dot{\omega}_{bt} = \omega_w$$
+$$\dot{g}_t = 0$$
+
+The noise in measurments of accel and gyro can be modeled as:
+$$ a_m = R^{\intercal}_{t}(a_t - g_t) + a_{bt} + a_n$$
+$$ \omega_m = \omega_t + \omega_{bt} + \omega_n$$
+
+After inverting the measurement equation...
+$$ a_t = R_t(a_m - a_{bt} - a_n) + g_t$$
+$$ \omega_t = \omega_m - \omega_{bt} - \omega_n$$
+
+The final substitution reveals the final kinematic system:
+$$\dot{p}_t = v_t$$
+$$\dot{v}_t = R_t(a_m - a_{bt} - a_n) + g_t$$
+$$\dot{q}_t = \frac{1}{2} q_t \bigotimes (\omega_m - \omega_{bt} - \omega_n)$$
+$$\dot{a}_{bt} = a_w$$
+$$\dot{\omega}_{bt} = \omega_w$$
+$$\dot{g}_t = 0$$
+
+The final system state, $x_t$ becomes:
+$$x_t = 
+\begin{bmatrix}
+p_t \\
+v_t \\
+q_t \\
+a_{bt} \\
+\omega_{bt} \\
+g_t 
+\end{bmatrix}
+$$
+
+IMU noise readings, $u_m$, are:
+$$ u = 
+\begin{bmatrix}
+a_m - a_n \\
+\omega_m - \omega_n
+\end{bmatrix}
+$$
+
+The white Gaussian noise, $w$ is:
+$$w=
+\begin{bmatrix}
+a_w \\
+\omega_w
+\end{bmatrix}
+$$
+
