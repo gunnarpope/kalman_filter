@@ -18,3 +18,19 @@ A library of applications of the Kalman filter
 | v  |  (mx1), measurement noise                         |  
 | R  |  (mxm), covariance matrix of v                    |
 
+Refer to [Quaternion Kinematics](https://www.iri.upc.edu/people/jsola/JoanSola/objectes/notes/kinematics.pdf) for an excellent outline of variable descriptions.
+
+| Magnitude | True | Nominal | Error | Composition | Measured | Noise | 
+| --------- |  --- | ------- | ----- | ----------- | -------- | ----- |
+| Full State | $x_t$ | $x$ | $\delta x$ | $x_t = x + \delta x$ | | |
+| Position   |  | |  |  | | |
+| Velocity   |  | |  |  | | |
+| Quaternion |  | |  |  | | |
+| Angles     |  | |  |  | | |
+| Accel. Bias|  | |  |  | | |
+| Gyro.  Bias|  | |  |  | | |
+| Gravity Vector|  | |  |  | | |
+| Acceleration |  | |  |  | | |
+| Angular Rate |  | |  |  | | |
+
+$z=[x, y, a]$ 
