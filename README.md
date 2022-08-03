@@ -23,14 +23,14 @@ Refer to [Quaternion Kinematics](https://www.iri.upc.edu/people/jsola/JoanSola/o
 | Magnitude | True | Nominal | Error | Composition | Measured | Noise | 
 | --------- |  --- | ------- | ----- | ----------- | -------- | ----- |
 | Full State | $x_t$ | $x$ | $\delta x$ | $x_t = x + \delta x$ | | |
-| Position   |  | |  |  | | |
-| Velocity   |  | |  |  | | |
-| Quaternion |  | |  |  | | |
-| Angles     |  | |  |  | | |
-| Accel. Bias|  | |  |  | | |
-| Gyro.  Bias|  | |  |  | | |
-| Gravity Vector|  | |  |  | | |
-| Acceleration |  | |  |  | | |
-| Angular Rate |  | |  |  | | |
-
-$z=[x, y, a]$ 
+| Position   | $p_t$ | $p$ | $\delta p$ | $p_t = p + \delta p$ | | |
+| Velocity | $v_t$ | $v$ | $\delta v$ | $v_t = v + \delta v$ | | |
+| Quaternion | $q_t$ | $q$ | $\delta q$ | $q_t = q \bigotimes \delta q$ | | |
+| Rotation Matrix | $R_t$ | $R$ | $\delta R$ | $R_t = R \delta R$ | | |
+| Angles Vector | | | $\delta \theta$  | $dq = e^{\delta \theta/ 2}$ | | |
+| Angles Vector | | | $\delta \theta$  | $dR = e^{\|{\delta \theta}\|}\times$ | | |
+| Accel. Bias| $a_{bt}$ | $a_b$ | $\delta a_b$ | $a_{bt}=a_b + \delta a_b$ | | $a_w$ |
+| Gyro.  Bias| $\omega_{bt}$ | $\omega_b$ | $\delta \omega_b$ | $\omega_{bt} =\omega_b + \delta \omega_b$ | | $\omega_w$ |
+| Gravity Vector | $g_{t}$ | $g$ | $\delta g$ | $g_{t}=g + \delta g$ | | |
+| Acceleration   | $a_t$ | | |  | $a_m$| $a_n$ |
+| Angular Rate   | $\omega_t$ | | |  | $\omega_m$| $\omega_n$ |
