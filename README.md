@@ -25,7 +25,7 @@ Refer to [Quaternion Kinematics](https://www.iri.upc.edu/people/jsola/JoanSola/o
 | Full State | $x_t$ | $x$ | $\delta x$ | $x_t = x + \delta x$ | | |
 | Position   | $p_t$ | $p$ | $\delta p$ | $p_t = p + \delta p$ | | |
 | Velocity | $v_t$ | $v$ | $\delta v$ | $v_t = v + \delta v$ | | |
-| Quaternion | $q_t$ | $q$ | $\delta q$ | $q_t = q \bigotimes \delta q$ | | |
+| Quaternion | $q_t$ | $q$ | $\delta q$ | $q_t = q \otimes \delta q$ | | |
 | Rotation Matrix | $R_t$ | $R$ | $\delta R$ | $R_t = R \delta R$ | | |
 | Angles Vector | | | $\delta \theta$  | $dq = e^{\delta \theta/ 2}$ | | |
 | Angles Vector | | | $\delta \theta$  | $dR = e^{\|{\delta \theta}\|}\times$ | | |
@@ -38,7 +38,7 @@ Refer to [Quaternion Kinematics](https://www.iri.upc.edu/people/jsola/JoanSola/o
 # Kinematic Equations
 $$\dot{p}_t = v_t$$
 $$\dot{v}_t = a_t$$
-$$\dot{q}_t = \frac{1}{2} q_t \bigotimes \omega_t$$
+$$\dot{q}_t = \frac{1}{2} q_t \otimes \omega_t$$
 $$\dot{a}_{bt} = a_w$$
 $$\dot{\omega}_{bt} = \omega_w$$
 $$\dot{g}_t = 0$$
@@ -54,7 +54,7 @@ $$ \omega_t = \omega_m - \omega_{bt} - \omega_n$$
 The final substitution reveals the final kinematic system:
 $$\dot{p}_t = v_t$$
 $$\dot{v}_t = R_t(a_m - a_{bt} - a_n) + g_t$$
-$$\dot{q}_t = \frac{1}{2} q_t \bigotimes (\omega_m - \omega_{bt} - \omega_n)$$
+$$\dot{q}_t = \frac{1}{2} q_t \otimes (\omega_m - \omega_{bt} - \omega_n)$$
 $$\dot{a}_{bt} = a_w$$
 $$\dot{\omega}_{bt} = \omega_w$$
 $$\dot{g}_t = 0$$
@@ -86,4 +86,16 @@ a_w \\
 \omega_w
 \end{bmatrix}
 $$
+
+## Discrete time kinematics
+
+$$ p \leftarrow p + v \Delta t + \frac{1}{2}(R(a_m - a_b)+g) \Delta t^2$$
+$$ v \leftarrow v + (R(a_m - a_b)+g) \Delta t$$
+$$ q \leftarrow q \otimes q{(\omega_m - \omega_b)\delta t}$$
+$$ a_b \leftarrow a_b$$
+$$ w_b \leftarrow w_b$$
+$$ g   \leftarrow g$$
+
+where $\leftarrow$ is the time update $x_{k+1} = f(x_k)$
+
 
